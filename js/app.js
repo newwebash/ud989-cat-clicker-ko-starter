@@ -1,12 +1,8 @@
-var ViewModel = function() {
+var Cat = function() {
 
     this.clickCount = ko.observable(0);
     this.name = ko.observable('Mittens');
-    this.img = ko.observable('img/mittens.jpg');
-
-    this.incrementCounter = function() {
-        this.clickCount(this.clickCount() + 1);
-    }
+    this.img = ko.observable('img/mittens.jpg'); 
 
     this.level = ko.computed(function() {
         var title;
@@ -24,6 +20,16 @@ var ViewModel = function() {
     this.nicknames = ko.observableArray([
         "Pippo", "Pillo", "'Murica", "Zebretta"
     ]);
+
+}
+
+var ViewModel = function() {  
+
+    this.currentCat = ko.observable( new Cat() );
+
+    this.incrementCounter = function() {
+        this.currentCat().clickCount(this.currentCat().clickCount() + 1);
+    }
 
 
 }
