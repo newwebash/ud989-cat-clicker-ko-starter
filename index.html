@@ -9,6 +9,9 @@
     <div id="cat">
 
         <h2 id="cat-name" data-bind="text: name"></h2>
+        <h3 data-bind="visible: level1">Newborn</h3>
+        <h3 data-bind="visible: level2">Infant</h3>
+        <h3 data-bind="visible: level3">Toddler</h3>
         <div id="cat-count" data-bind="text: clickCount"></div>
         <img id="cat-img" src="" alt="cute cat" data-bind="click: incrementCounter, 
         attr: {src: img}">
