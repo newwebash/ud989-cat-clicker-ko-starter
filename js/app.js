@@ -8,19 +8,17 @@ var ViewModel = function() {
         this.clickCount(this.clickCount() + 1);
     }
 
-    /*
-    LEVELS
-    */
-    this.level1 = ko.computed(function() {
-        return this.clickCount() <5;
-    }, this);
-
-    this.level2 = ko.computed(function() {
-        return this.clickCount() >=5 && this.clickCount() <=10;
-    }, this);
-
-    this.level3 = ko.computed(function() {
-        return this.clickCount() >10;
+    this.level = ko.computed(function() {
+        var title;
+        var clicks = this.clickCount();
+        if (clicks < 5) {
+            title = "Newborn";
+        } else if (clicks < 10 ) {
+            title = "Infant";
+        } else if (clicks >= 10) {
+            title = "Child";
+        }
+        return title;
     }, this);
 
     this.nicknames = ko.observableArray([
