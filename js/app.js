@@ -8,6 +8,9 @@ var ViewModel = function() {
         this.clickCount(this.clickCount() + 1);
     }
 
+    /*
+    LEVELS
+    */
     this.level1 = ko.computed(function() {
         return this.clickCount() <5;
     }, this);
@@ -19,6 +22,10 @@ var ViewModel = function() {
     this.level3 = ko.computed(function() {
         return this.clickCount() >10;
     }, this);
+
+    this.nicknames = ko.observableArray([
+        "Pippo", "Pillo", "'Murica", "Zebretta"
+    ]);
 
 
 }
